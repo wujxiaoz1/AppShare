@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="index" type="id" />
     <item name="vToolbar" type="id" />
     <item name="vToolbarTitle" type="id" />
     <item name="vToolbarRhsBtn" type="id" />
