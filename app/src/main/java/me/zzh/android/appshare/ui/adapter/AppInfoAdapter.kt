@@ -20,6 +20,12 @@ class AppInfoAdapter(private val ctx: Context) : BaseAdapter() {
     var data: List<AppInfo>? = null
         set(value) {
             field = value
+            checkedItemIndex.clear()
+            notifyDataSetChanged()
+        }
+    var multiCheck = false
+        set(value) {
+            field = value
             notifyDataSetChanged()
         }
     private val checkedItemIndex = SparseBooleanArray()
@@ -32,7 +38,11 @@ class AppInfoAdapter(private val ctx: Context) : BaseAdapter() {
             val cbSelect = ViewHolder.get<CheckBox>(view, R.id.cbSelect);
             cbSelect.setOnCheckedChangeListener { v, isChecked ->
                 val index = v.getTag(R.id.index) as Int
+                if (isChecked && !multiCheck) {
+                    checkedItemIndex.clear()
+                }
                 checkedItemIndex.put(index, isChecked)
+                notifyDataSetChanged()
                 if (onItemCheckedChangeListener != null) {
                     onItemCheckedChangeListener!!.onItemCheckedChange(index, data!![index])
                 }

@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
         mAppInfoAdapter = AppInfoAdapter(this)
         mAppInfoAdapter.onItemCheckedChangeListener = object : AppInfoAdapter.OnItemCheckedChangeListener {
             override fun onItemCheckedChange(index: Int, item: AppInfo) {
-                val checkedCount = mAppInfoAdapter.getCheckedItemCount()
-                mToolbar.setTitle(if (checkedCount == 0) "本机应用" else String.format("已选%d个", checkedCount))
+//                val checkedCount = mAppInfoAdapter.getCheckedItemCount()
+//                mToolbar.setTitle(if (checkedCount == 0) "本机应用" else String.format("已选%d个", checkedCount))
             }
         }
         lvData.adapter = mAppInfoAdapter
